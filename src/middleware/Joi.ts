@@ -21,10 +21,16 @@ export const ValidateJoi = (schema: ObjectSchema) => {
 export const Schemas = {
     organizacion: {
         create: Joi.object<IOrganizacion>({
-            name: Joi.string().required()
+            name: Joi.string().required(),
+            usuarios: Joi.array().items(
+                Joi.string().regex(/^[0-9a-fA-F]{24}$/)
+            )
         }),
         update: Joi.object<IOrganizacion>({
-            name: Joi.string().required()
+            name: Joi.string().required(),
+            usuarios: Joi.array().items(
+                Joi.string().regex(/^[0-9a-fA-F]{24}$/)
+            )
         })
     },
     usuario: {

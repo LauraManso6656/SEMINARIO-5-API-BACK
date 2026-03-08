@@ -103,6 +103,27 @@ router.get('/', controller.readAll);
 
 /**
  * @openapi
+ * /organizaciones/{id}/users:
+ *   get:
+ *     summary: Obtiene los usuarios de una organización
+ *     tags: [Organizaciones]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: El ID de la organización
+ *     responses:
+ *       200:
+ *         description: Lista de usuarios de la organización
+ *       404:
+ *         description: Organización no encontrada
+ */
+router.get('/:id/users', controller.getOrganizacionUsers); //AÑADIDO PARA OBTENER LOS USUARIOS DE UNA ORGANIZACIÓN
+
+/**
+ * @openapi
  * /organizaciones/{organizacionId}:
  *   put:
  *     summary: Actualiza una organización por ID
