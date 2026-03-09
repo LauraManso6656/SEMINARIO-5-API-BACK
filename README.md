@@ -183,6 +183,17 @@ En la carpeta `ejercicio-seminario/` encontrarás material didáctico sobre cóm
 
 ---
 
+## Uso de Inteligencia Artificial
+
+En el desarrollo de este proyecto, se ha utilizado inteligencia artificial (IA) en las siguientes secciones del código, como se indica en los comentarios correspondientes:
+
+- **src/services/Organizacion.ts** (línea 34): Autocompletado con IA para la función `getOrganizacionWithUsers`.
+- **src/services/Usuario.ts** (línea 12): Ayuda de IA utilizada para añadir la lógica de actualización de la organización al crear un nuevo usuario.
+- **src/services/Usuario.ts** (línea 25): Ayuda de IA utilizada para actualizar las relaciones al cambiar de organización.
+- **src/routes/Organizacion.ts** (línea 105): Espacio hecho con IA para la documentación OpenAPI.
+
+---
+
 ## Instalación y ejecución
 
 ```bash

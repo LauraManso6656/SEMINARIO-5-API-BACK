@@ -9,7 +9,7 @@ const createUsuario = async (data: Partial<IUsuario>): Promise<IUsuarioModel> =>
     });
     const savedUsuario = await usuario.save();
 
-    //añadido para actualizar la organización con el nuevo usuario
+    //añadido para actualizar la organización con el nuevo usuario. ayuda de ia utilizada.
     if (savedUsuario.organizacion) {
         await Organizacion.findByIdAndUpdate(savedUsuario.organizacion, {
             $push: { usuarios: savedUsuario._id }
@@ -22,7 +22,7 @@ const updateUsuario = async (usuarioId: string, data: Partial<IUsuario>): Promis
     const usuarioActual = await Usuario.findById(usuarioId);
     if (!usuarioActual) return null;
 
-    // si cambia de organizacion, actualizamos las relaciones
+    // si cambia de organizacion, actualizamos las relaciones. ayuda de ia utilizada.
     if (data.organizacion && data.organizacion.toString() !== usuarioActual.organizacion?.toString()) {
         await Organizacion.findByIdAndUpdate(usuarioActual.organizacion, { $pull: { usuarios: usuarioId } });
         await Organizacion.findByIdAndUpdate(data.organizacion, { $push: { usuarios: usuarioId } });

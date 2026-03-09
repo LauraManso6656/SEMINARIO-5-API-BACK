@@ -30,20 +30,18 @@ const deleteOrganizacion = async (organizacionId: string): Promise<IOrganizacion
     return await Organizacion.findByIdAndDelete(organizacionId);
 };
 
-// MODIFICACIÓ AQUÍ:
-// Hem afegit el select:'name' per assegurar-nos que volem el nom, 
-// no tot l'objecte, i així la resposta és més neta.
-const getOrganizacionWithUsers = async (id: string) => {
+//poner name, email etc para que aparezca en la peticion getOrganizacionWithUsers
+const getOrganizacionWithUsers = async (id: string) => {  //autocompletado con ia
     return await Organizacion.findById(id)
         .populate({
             path: 'usuarios',
             select: 'name email'
-            select: 'or' // Pots afegir aquí els camps del usuari que vulguis veure
+             
         })
         .lean();
 };
 
-const addUserToOrganizacion = async (organizacionId: string, usuarioId: string) => {
+const addUserToOrganizacion = async (organizacionId: string, usuarioId: string) => {//esta funcion es para añadir un usuario a una organizacion
     return await Organizacion.findByIdAndUpdate(
         organizacionId,
         { $push: { usuarios: usuarioId } },

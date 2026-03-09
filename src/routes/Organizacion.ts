@@ -102,7 +102,7 @@ router.get('/:organizacionId', controller.readOrganizacion);
 router.get('/', controller.readAll);
 
 /**
- * @openapi
+ * @openapi //espacio hecho con ia
  * /organizaciones/{id}/users:
  *   get:
  *     summary: Obtiene los usuarios de una organización
